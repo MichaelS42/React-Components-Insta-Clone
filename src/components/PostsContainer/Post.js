@@ -8,30 +8,36 @@ import "./Posts.css";
 // pass props in this file to
 const Post = props => {
   // set up state for the likes
-  const [likes, setLikes] = useState(LikeSection)
+  const [likes, setLikes] = useState(0)
   return (
-    <div className="post-border">
-      <PostHeader
-        username={props.post.username}
-        thumbnailUrl={
+    <div>
+      <div className="post-border">
+        <PostHeader
+         username={props.post.username}
+          thumbnailUrl={
           props.post.thumbnailUrl
-        }
-      />
-      <div className="post-image-wrapper">
-        <img
-          alt="post thumbnail"
-          className="post-image"
-          src={props.post.imageUrl}
+          }
+         />
+       </div>
+        <div className="post-image-wrapper">
+          <img
+           alt="post thumbnail"
+           className="post-image"
+           src={props.post.imageUrl}
+          />
+        </div>
+      <div className="like-section-wrapper">
+        <LikeSection 
+          setlikes={setLikes}
+          likes={likes}
         />
       </div>
-      <LikeSection />
-      <div className="like-section-wrapper">
-        likes={props.post.likes}
-      </div>0
-      <CommentSection
-        postId={props.post.imageUrl}
-        comments={props.post.comments}
-      />
+      <div>
+        <CommentSection
+          postId={props.post.imageUrl}
+          comments={props.post.comments}
+        />
+      </div>
     </div>
   );
 };
